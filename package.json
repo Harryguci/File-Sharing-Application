@@ -1,0 +1,21 @@
+{
+  "name": "restaurant-manager-website",
+  "version": "1.0.0",
+  "description": "Restaurant Management Website",
+  "main": "index.js",
+  "watches": {
+    "sass": "sass/**"
+  },
+  "scripts": {
+    "start": "nodemon .\\src\\index.js",
+    "watch": "node-sass --watch .\\src\\resources\\scss --output .\\public\\css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongoose": "^6.8.1",
+    "node-sass": "^8.0.0",
+    "nodemon": "^2.0.20"
+  }
+}
