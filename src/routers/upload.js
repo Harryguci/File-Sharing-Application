@@ -7,7 +7,9 @@ const upload = require("../middleware/upload.js");
 router.post("/", upload.single("file_upload"), (req, res, next) => {
   try {
     // res.json({ Status: "File Uploaded" });
-    res.redirect("back");
+    var backURL = req.header("Referer") || "/";
+    backURL += "?notify=Upload file successfully!";
+    res.redirect(backURL); // After redirect, Send a notification for user.
   } catch (err) {
     next(err);
   }

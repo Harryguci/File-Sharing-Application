@@ -18,11 +18,14 @@
 
 <body onload="loading()">
     <header>
+        {{#if notify}}
         <div class="container-fluid p-0" id="top-bar">
             <div class="container-fluid bg-danger d-flex justify-content-center" style="height: 30px;">
-                <p class="my-auto text-center text-white text-opacity-75">Some notifications in here</p>
+                <p class="my-auto text-center text-white text-opacity-75">{{notify}}</p>
             </div>
         </div>
+        {{/if}}
+
         {{!-- <button type="button" id="btn-test" class="btn">Test</button> --}}
         <nav class="navbar navbar-expand-md navbar-light bg-light">
             <div class="container">

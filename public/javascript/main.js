@@ -7,7 +7,9 @@ $("#btn-test").click(function () {
 });
 
 function init() {
-  $("#top-bar").toggle();
+  setTimeout(() => {
+    $("#top-bar").slideUp("swing");
+  }, 5000);
 }
 
 function loading() {

@@ -9,16 +9,16 @@ const storage = multer.diskStorage({
     //console.log(req.body);
     var type = req.body.type;
     type = type.toLowerCase();
-
+    var check = false;
     kindFile.map((value) => {
       if (value === type) {
         check = true;
       }
     }).length;
 
-    var Path = path.join(__dirname, "..", "..", "Documents", "other");
+    var Path = path.join(__dirname, "..", "..", "public", "Documents", "other");
     if (check) {
-      Path = path.join(__dirname, "..", "..", "Documents", type);
+      Path = path.join(__dirname, "..", "..", "public", "Documents", type);
     }
 
     // Callback to store the uploaded file
