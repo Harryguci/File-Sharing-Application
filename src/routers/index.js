@@ -1,8 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
+const sharingController = require("../app/controllers/sharingController");
+const uploadRouter = require("./upload");
 
-router.get('/', (req, res) => {
-    res.json({ Title: "Hello world !!" });
-});
+router.use("/upload", uploadRouter);
+router.get("/", sharingController.show);
 
 module.exports = router;
