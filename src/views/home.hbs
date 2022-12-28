@@ -23,11 +23,11 @@
                 <div class="mb-3">
                     <label for="file" class="form-label fs-3 fw-bold">Choose file</label>
                     <input type="file" class="form-control" name="file_upload" id="file_upload" placeholder=""
-                        aria-describedby="fileHelp">
+                        aria-describedby="fileHelp" onchange="checkFileValidate(event)">
                     <div id="fileHelp" class="form-text">Có thể chia sẻ file .doc, .docx, .pptx, .cpp,...</div>
                 </div>
                 <div class="mt-4 d-flex justify-content-start">
-                    <button class="btn btn-outline-primary px-5 py-2" type="submit">Share</button>
+                    <button class="btn btn-outline-primary px-5 py-2" type="submit" disabled>Share</button>
                 </div>
             </form>
         </div>
@@ -69,3 +69,4 @@
     </div>
 </div>
 <script type="module" src="./javascript/main.js" defer></script>
+<script type="module" src="./javascript/home.js" defer></script>
