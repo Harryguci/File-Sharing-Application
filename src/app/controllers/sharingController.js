@@ -3,23 +3,24 @@ const getDir = require("../../config/js/readdirSync");
 class sharingController {
   // [GET] /
   show = (req, res, next) => {
-    // console.log(req.query.notify);
-    var arr = getDir(
-      "other",
+    var fileNew = getDir(
+      "all",
+      path.join(__dirname, "..", "..", "..", "public", "Documents"),
+      2
+    );
+    var file = getDir(
+      "all",
       path.join(__dirname, "..", "..", "..", "public", "Documents")
     );
 
-    var buff = [];
-    arr = arr.map(function (obj) {
-      var temp = obj;
-      buff.push({ name: temp, type: "other" });
-    });
-    arr = buff;
+    // console.log(arr);
 
     res.render("home", {
       title: "Home page",
       notify: req.query.notify,
-      file: arr,
+      fileNew: fileNew,
+      file: file,
+      css: ["./css/main.css"],
     });
   };
 }
