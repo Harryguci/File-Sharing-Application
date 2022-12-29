@@ -44,14 +44,14 @@
         {{!-- <button type="button" id="btn-test" class="btn">Test</button> --}}
         <nav class="navbar navbar-expand-md navbar-light bg-light p-0">
             <div class="container">
-                <a class="navbar-brand fw-bold text-success fs-2" href="/">HRG</a>
+                <a class="navbar-brand fw-bold text-success fs-1" href="/">HARG</a>
                 <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
                     data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse p-0" id="collapsibleNavId">
-                    <ul class="navbar-nav me-auto mt-2 mt-lg-0 p-0">
+                <div class="collapse navbar-collapse p-0" id="collapsibleNavId" style="">
+                    <ul class="navbar-nav me-auto mt-2 mt-lg-0 p-0 mx-auto">
                         <li class="nav-item">
                             <a class="nav-link" href="/">Trang Chủ<span class="visually-hidden">(current)</span></a>
                         </li>
@@ -82,6 +82,66 @@
     </header>
     {{{body}}}
 
+    <footer class="py-5">
+        <div class="container px-5 px-md-0 container-md mb-5">
+            <div class="row">
+                <div class="col-12 col-md-4 col-xl-3">
+                    <h3 class="fs-1" style="padding-bottom: 10px;
+                    width: fit-content;
+                    border-bottom: 1px #ffffff solid;">
+                        File Sharing</h3>
+                </div>
+                <div class="col-12 col-md-4 col-xl-3">
+                    <h3>About</h3>
+                    <p>My full name is CHU QUANG HUY. I am an intern Web Developer. I have been studying at the
+                        University of Transport and Communications (Hanoi, Vietnam) since 2021. I always try hard and
+                        improve myself every day. My dream is to become a great programmer.</p>
+                    <a href="/about" class="btn btn-1 px-4 py-3 rounded-0" style="border: 1px solid #ffffff;">Read
+                        more</a>
+                </div>
+                <div class="col-12 col-md-4 col-xl-3">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li class="footer__item d-flex align-items-center">
+                            <span class="material-symbols-outlined">
+                                call
+                            </span>
+                            <button type="button" class="btn copyButton text-white mx-2 copyButton"
+                                value="+84967259370">(+84)967.259.370</button>
+                        </li>
+                        <li class="footer__item d-flex align-items-center">
+                            <span class="material-symbols-outlined">
+                                dashboard
+                            </span>
+                            <span class="mx-2">
+                                <a href="https://www.facebook.com/chu.huy.020808/">fb.com/chu.huy.020808/</a>
+                            </span>
+                        </li>
+                        <li class="footer__item d-flex align-items-center">
+                            <span class="material-symbols-outlined">
+                                wysiwyg
+                            </span>
+                            <span class="mx-2">
+                                <a href="https://github.com/Harryguci">github.com/Harryguci</a>
+                            </span>
+                        </li>
+                        <li class="footer__item d-flex align-items-center">
+                            <span class="material-symbols-outlined">
+                                mail
+                            </span>
+                            <span class="mx-2">
+                                <button class="btn copyButton text-white" type="button"
+                                    value="huyquang0028@gmail.com">huyquang0028@gmail.com</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-md text-center">
+            <p>Copyright by Harryguci - 2022</p>
+        </div>
+    </footer>
     <!-- Modal -->
     <div class="modal fade" id="modal-confirm" tabindex="-1" aria-labelledby="modal-confirmLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -100,8 +160,9 @@
             </div>
         </div>
     </div>
-</body>
 
+
+</body>
 {{!-- Jquery --}}
 <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="https://code.jquery.com/jquery-migrate-3.4.0.js"></script>
@@ -112,6 +173,7 @@
 
 {{!-- External files --}}
 <script type="module" src="../javascript/main.js" defer></script>
+<script type="module" src="../javascript/buttonCopy.js" defer></script>
 {{{javascript}}}
 
 <script defer>

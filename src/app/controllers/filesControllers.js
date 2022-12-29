@@ -47,11 +47,18 @@ class filesController {
         .then((arr) => {
           arr = Array.from(arr);
           arr = arr.map((obj) => (obj = obj.toObject()));
+          var heading;
+          for (var i = 0; i < kindFile.length; i++) {
+            if (type == kindFile[i]) {
+              heading = kindFileTEMP[i];
+              break;
+            }
+          }
 
           res.render("files", {
             css: ["../css/main.css", "../css/files.css"],
             title: "File page",
-            page: "All",
+            page: heading,
             notify: req.query.notify,
             file: arr,
           });
@@ -68,7 +75,6 @@ class filesController {
 
     await File.findOneAndDelete({ id: file.name })
       .then((obj) => {
-
         pathToFile = path.join(
           __dirname,
           "..",

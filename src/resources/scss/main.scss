@@ -1,6 +1,6 @@
 // styles.scss
 @import "base";
-// @import "modal";
+@import "notification";
 ul,
 ol {
   padding: 0;
@@ -44,19 +44,51 @@ a {
       background: rgba(100, 100, 220, 1);
     }
   }
-} 
+}
 
 .dropdown-menu.show {
   animation: show-dropdown 0.3s ease-in-out both;
 }
 @keyframes show-dropdown {
-  0%{
+  0% {
     opacity: 0;
     transform: translate(0, -20px);
   }
-  100%{
+  100% {
     opacity: 1;
     transform: translate(0, 0px);
   }
 }
 
+footer {
+  gap: 12px;
+  background: rgb(100, 100, 255);
+  color: #eef1ff !important;
+
+  h3 {
+    margin: 20px 0;
+    font-weight: bold;
+  }
+
+  p {
+    line-height: 25px;
+    text-align: justify;
+  }
+
+  ul li {
+    padding: 10px 20px;
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  }
+  a,
+  button {
+    text-decoration: none;
+    color: white !important;
+    padding: 0 !important;
+
+    &:hover {
+      color: rgb(255, 150, 150) !important;
+    }
+  }
+}
