@@ -13,5 +13,40 @@ ol {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   font-weight: bold; }
+
+a {
+  text-decoration: none; }
+
+.nav-item {
+  font-size: 1.2rem;
+  padding: 15px 10px;
+  font-weight: bold; }
+  .nav-item:hover {
+    background: #4646c8; }
+    .nav-item:hover > a {
+      color: white; }
+
+.dropdown-menu {
+  border-radius: 0;
+  padding: 0 !important;
+  background: none; }
+  .dropdown-menu .dropdown-item {
+    padding: 15px 20px;
+    color: white;
+    background: #4646c8; }
+    .dropdown-menu .dropdown-item:hover {
+      background: #6464dc; }
+
+.dropdown-menu.show {
+  animation: show-dropdown 0.3s ease-in-out both; }
+
+@keyframes show-dropdown {
+  0% {
+    opacity: 0;
+    transform: translate(0, -20px); }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0px); } }

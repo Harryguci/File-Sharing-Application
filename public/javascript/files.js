@@ -1,5 +1,5 @@
 const btn = document.getElementsByClassName("btn-delete");
-console.log(btn);
+// console.log(btn);
 
 function sendData(data) {
   console.log("Sending data");
@@ -52,3 +52,26 @@ function deleteHandle(obj) {
 
   sendData(data);
 }
+
+var form;
+
+async function setContentModal(title, content, btn1) {
+  $("#modal-confirm .modal-title").text(title);
+  $("#modal-confirm .modal-body").text(content);
+  $("#modal-confirm .btn-confirm").text(btn1);
+}
+
+$(".btn-delete").click(async function () {
+  setContentModal("Thông báo", "Xác nhận chắc chắn xóa File.", "Xác nhận");
+  form = $(this).parents("form");
+});
+
+$("#modal-confirm .btn-confirm").click(function (e) {
+  if (form) form.submit();
+});
+
+function validateForm(event) {
+  console.log("validating");
+}
+
+window.validateForm = validateForm;

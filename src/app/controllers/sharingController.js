@@ -1,5 +1,6 @@
 const path = require("path");
 const getDir = require("../../config/js/readdirSync");
+const File = require("../models/File");
 
 function sortFileArray(file) {
   for (var i = 0; i < file.length; i++) {
@@ -16,21 +17,35 @@ function sortFileArray(file) {
 class sharingController {
   // [GET] /
   show = (req, res, next) => {
-    var file = getDir(
-      "all",
-      path.join(__dirname, "..", "..", "..", "public", "Documents")
-    );
+    File.find({ delete: "false" })
+      .sort({ id: "desc" })
+      .then((arr) => {
+        arr = Array.from(arr);
+        arr = arr.map((obj) => (obj = obj.toObject()));
+        var fileNew = [];
 
-    // console.log(arr);
-    file = sortFileArray(file);
-    var fileNew = [file[0], file[1]];
+        for (var i = 0; i < arr.length && fileNew.length <= 2; i++) {
+          fileNew.push(arr[i]);
+        }
 
-    res.render("home", {
-      title: "Home page",
-      notify: req.query.notify,
-      fileNew: fileNew,
-      file: file,
-      css: ["./css/main.css"],
+        res.render("home", {
+          css: ["../css/main.css", "../css/files.css", "../css/home.css"],
+          title: "File page",
+          page: "All",
+          notify: req.query.notify,
+          file: fileNew,
+          fileNew: arr,
+        });
+      })
+      .catch((err) => next(err));
+  };
+
+  showJson = (req, res, next) => {
+    File.find({}).then((arr) => {
+      arr = Array.from(arr);
+      arr = arr.map((obj) => (obj = obj.toObject()));
+
+      res.json(arr);
     });
   };
 }

@@ -25,5 +25,6 @@ function submitFormSharing(event) {
   // event.preventDefault();
 }
 
+
 window.loading = loading;
 window.submitFormSharing = submitFormSharing;

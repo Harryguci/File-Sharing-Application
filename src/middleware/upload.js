@@ -17,17 +17,26 @@ const storage = multer.diskStorage({
     }).length;
 
     var Path = path.join(__dirname, "..", "..", "public", "Documents", "other");
+    req.filePath = path.join("Documents", "other");
     if (check) {
       Path = path.join(__dirname, "..", "..", "public", "Documents", type);
+      req.filePath = path.join("Documents", type);
     }
-
     // Callback to store the uploaded file
     callback(null, Path);
   },
 
   filename: (req, file, callback) => {
-    callback(null, Date.now() + path.extname(file.originalname));
+    var fileID = Date.now() + path.extname(file.originalname);
+    req.id = fileID;
+    callback(null, fileID);
   },
 });
 
-module.exports = multer({ storage });
+// exports.fileID = fileID;
+// exports.multer = multer({ storage });
+// module.exports = [multer({ storage }), (fileID = fileID)];
+
+module.exports = {
+  multer: multer({ storage }),
+};
