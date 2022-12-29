@@ -47,6 +47,16 @@ body {
   animation-duration: 0.5s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: both; }
+  .item-show:nth-child(1) {
+    animation-delay: 0.2s; }
+  .item-show:nth-child(2) {
+    animation-delay: 0.4s; }
+  .item-show:nth-child(3) {
+    animation-delay: 0.6s; }
+  .item-show:nth-child(4) {
+    animation-delay: 0.8s; }
+  .item-show:nth-child(n+5) {
+    animation-delay: 1s; }
 
 @keyframes item-show {
   100% {
