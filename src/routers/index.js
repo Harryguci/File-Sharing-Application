@@ -6,7 +6,7 @@ const filesRouter = require("./files");
 
 router.use("/upload", uploadRouter);
 router.use("/files", filesRouter);
-
+router.get("/about", sharingController.about);
 router.get("/all", sharingController.showJson);
 router.get("/", sharingController.show);
 

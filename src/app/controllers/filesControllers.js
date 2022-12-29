@@ -27,7 +27,7 @@ class filesController {
       .then((arr) => {
         arr = Array.from(arr);
         arr = arr.map((obj) => (obj = obj.toObject()));
-        
+
         res.render("files", {
           css: ["../css/main.css", "../css/files.css"],
           title: "File page",
@@ -65,11 +65,9 @@ class filesController {
   delete = async (req, res, next) => {
     var file = req.body;
     var pathToFile;
-    res.send(file.name);
 
     await File.findOneAndDelete({ id: file.name })
       .then((obj) => {
-        res.json(obj);
 
         pathToFile = path.join(
           __dirname,
@@ -94,8 +92,5 @@ class filesController {
       .catch((err) => next(err));
   };
 }
-
-
-
 
 module.exports = new filesController();

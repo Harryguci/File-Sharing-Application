@@ -48,6 +48,13 @@ class sharingController {
       res.json(arr);
     });
   };
+
+  about = (req, res, next) => {
+    res.render("about", {
+      css: ["../css/main.css","../css/about.css"],
+      title: "File page",
+    });
+  };
 }
 
 module.exports = new sharingController();
