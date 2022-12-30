@@ -33,10 +33,7 @@ app.use(express.static("public"));
 /*
   ¯\_(❛0 ‿❛0)_/¯
 
-  #27.12.2022 : Done handling to upload files (middleware)
-  [NEXT] : Upload multiple files
-  [NEXT] : Load files from server to the user browser.
-  [NEXT] : Build UI/UX
+  # This project has done !
 */
 
 app.use("/", router);
