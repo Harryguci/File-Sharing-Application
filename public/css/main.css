@@ -108,6 +108,9 @@ a {
     opacity: 1;
     transform: translate(0, 0px); } }
 
+main {
+  min-height: 50vh; }
+
 footer {
   gap: 12px;
   background: #6464ff;
