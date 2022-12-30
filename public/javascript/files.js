@@ -1,5 +1,5 @@
 const btn = document.getElementsByClassName("btn-delete");
-// console.log(btn);
+import setContentModal from "./modules/modal.js";
 
 function sendData(data) {
   console.log("Sending data");
@@ -55,14 +55,8 @@ function deleteHandle(obj) {
 
 var form;
 
-async function setContentModal(title, content, btn1) {
-  $("#modal-confirm .modal-title").text(title);
-  $("#modal-confirm .modal-body").text(content);
-  $("#modal-confirm .btn-confirm").text(btn1);
-}
-
 $(".btn-delete").click(async function () {
-  setContentModal("Thông báo", "Xác nhận chắc chắn xóa File.", "Xác nhận");
+  setContentModal("Thông báo", "Chuyển File này vào thùng rác?", "Xác nhận");
   form = $(this).parents("form");
 });
 

@@ -1,6 +1,7 @@
 // styles.scss
 @import "base";
 @import "notification";
+
 ul,
 ol {
   padding: 0;
@@ -28,6 +29,10 @@ a {
     > a {
       color: white;
     }
+  }
+
+  .nav-link.active {
+    border-bottom: 2px solid #000000;
   }
 }
 
