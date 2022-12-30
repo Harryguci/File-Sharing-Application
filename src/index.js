@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Database connection
 // const db = require(path.join(__dirname, "config", "db"));
-const db = require("./config/db/");
+const db = require(path.join(__dirname, "config", "db"));
 db.connect();
 
 // Handlebars express template engine (And setup)
