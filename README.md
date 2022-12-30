@@ -2,6 +2,12 @@
 
 An Application use Node JS (Express) and Libraries.
 
+# Describe Application
+
+<ul>
+    <li>Create, Read (Search, Download), Delete Files. (Can not updating because files uploaded from user's system)</li>
+</ul>
+
 # Tech
 
 <ul>
