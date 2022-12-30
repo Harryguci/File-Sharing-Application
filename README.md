@@ -40,5 +40,6 @@ An Application use Node JS (Express) and Libraries.
 <ul>
     <li>1. Install Node JS</li>
     <li>2. Install npm: npm init</li>
+    <li>3. Install MongoDB</li>
     <li>3. Run terminal: npm start</li>
 </ul>
