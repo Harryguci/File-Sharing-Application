@@ -45,8 +45,18 @@ An Application use Node JS (Express) and Libraries.
 # Run
 
 <ul>
-    <li>1. Install Node JS</li>
-    <li>2. Install npm: npm init</li>
-    <li>3. Install MongoDB</li>
-    <li>3. Run terminal: npm start</li>
+    <li>Step 1: Install MongoDB (And MongDB Compass) (Detail: <a href="https://www.mongodb.com/docs/compass/current/connect/">https://www.mongodb.com/docs/compass/current/connect/</a>)</li>
+    <li>Step 2: Download and Install Node js (Detail: <a href="https://nodejs.org/en/">https://nodejs.org/en/</a>)</li>
+    <li>Step 3: Install Express, npm. Enter in your terminal:
+        <ul>
+            <li><i>npm install</i></li>
+            <li><i>npm init</i></li>
+            <li><i>npm i express</i></li>
+        </ul>
+    </li>
+    <li>Step 4: Start local server: In The Terminal enter <i>'npm start'</i></li>
+    <li>Step 5: In your browser access <i>http://localhost:3000/</i></li>
+    <li>Quit: In your Terminal enter Ctrl + C (In Window).
+        <ul><li> Turn Off: server press Y.</li><li> Cancel: press N.</li></ul>
+    </li>
 </ul>
