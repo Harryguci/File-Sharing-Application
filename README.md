@@ -47,7 +47,7 @@ An Application use Node JS (Express) and Libraries.
 <ul>
     <li>Step 1: Install MongoDB (And MongDB Compass) (Detail: <a href="https://www.mongodb.com/docs/compass/current/connect/">https://www.mongodb.com/docs/compass/current/connect/</a>)</li>
     <li>Step 2: Download and Install Node js (Detail: <a href="https://nodejs.org/en/">https://nodejs.org/en/</a>)</li>
-    <li>Step 3: Install Express, npm, Bootstrap 5. Enter in your terminal:
+    <li>Step 3: Install Frameworks and Libraries. Please, Enter in your terminal:
         <ul>
             <li>npm: <i>npm install</i></li>
             <li>Create npm: <i>npm init</i></li>
