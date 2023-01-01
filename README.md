@@ -47,11 +47,17 @@ An Application use Node JS (Express) and Libraries.
 <ul>
     <li>Step 1: Install MongoDB (And MongDB Compass) (Detail: <a href="https://www.mongodb.com/docs/compass/current/connect/">https://www.mongodb.com/docs/compass/current/connect/</a>)</li>
     <li>Step 2: Download and Install Node js (Detail: <a href="https://nodejs.org/en/">https://nodejs.org/en/</a>)</li>
-    <li>Step 3: Install Express, npm. Enter in your terminal:
+    <li>Step 3: Install Express, npm, Bootstrap 5. Enter in your terminal:
         <ul>
-            <li><i>npm install</i></li>
-            <li><i>npm init</i></li>
-            <li><i>npm i express</i></li>
+            <li>npm: <i>npm install</i></li>
+            <li>Create npm: <i>npm init</i></li>
+            <li>Express: <i>npm i express</i></li>
+            <li>Handlebars: <i>npm i handlebars</i></li>
+            <li>Mongoose: <i>npm i mongoose</i></li>
+            <li>Multer: <i>npm i multer</i></li>
+            <li>Node-Sass: <i>npm i node-sass</i></li>
+            <li>Nodemon: <i>npm i nodemon</i></li>
+            <li>Bootstrap 5.23: <i>npm install bootstrap@5.2.3</i></li>
         </ul>
     </li>
     <li>Step 4: Start local server: In The Terminal enter <i>'npm start'</i></li>
