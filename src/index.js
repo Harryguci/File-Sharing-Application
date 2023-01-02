@@ -7,6 +7,11 @@ const app = express();
 const port = 3000;
 const path = require("path");
 const router = require(path.join(__dirname, "routers"));
+const bodyParser = require("body-parser");
+const passport = require("passport");
+
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(passport.initialize()); //Dòng này để thông báo sử dụng passport nhé
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
