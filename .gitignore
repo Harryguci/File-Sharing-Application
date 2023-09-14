@@ -1,1 +1,6 @@
-Documents
+/nodes_modules
+
+.env
+
+/public/Documents/*
+

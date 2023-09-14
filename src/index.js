@@ -10,6 +10,9 @@ const router = require(path.join(__dirname, "routers"));
 const bodyParser = require("body-parser");
 const passport = require("passport");
 
+// .ENV configuration:
+require('dotenv').config()
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(passport.initialize()); //Dòng này để thông báo sử dụng passport nhé
 
@@ -17,7 +20,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // Database connection
-// const db = require(path.join(__dirname, "config", "db"));
 const db = require(path.join(__dirname, "config", "db"));
 db.connect();
 

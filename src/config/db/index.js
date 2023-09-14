@@ -1,13 +1,19 @@
 // Connect to the server.
-
 const mongoose = require("mongoose");
+
+const currentUser = {
+  username: process.env.USERNAME_MONGO,
+  password: process.env.PASSWORD_MONGO,
+};
+const uri = `mongodb+srv://${currentUser.username}:${currentUser.password}@cluster01.chrqhpv.mongodb.net/`;
+
 
 async function connect() {
   try {
-    await mongoose.connect("mongodb://127.0.0.1/file-sharing-app");
+    await mongoose.connect(uri);
     console.log("Connection Successfully");
   } catch (err) {
-    console.log("Connection Error");
+    console.log("Connection Error" + err.message);
   }
 }
 

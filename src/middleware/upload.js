@@ -6,7 +6,6 @@ var kindFile = ["code", "de-cuong", "slide", "study", "tieu-luan"];
 // Middleware
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    //console.log(req.body);
     var type = req.body.type;
     type = type.toLowerCase();
     var check = false;

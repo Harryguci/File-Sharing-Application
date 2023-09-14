@@ -34,8 +34,8 @@ class deleteController {
 
   delete = (req, res, next) => {
     // POST request
-    var id = req.body.id;
-    var notify;
+    let id = req.body.id;
+    let notify;
     console.log(req.body);
 
     if (id) {
@@ -43,7 +43,7 @@ class deleteController {
         .then((obj) => {
           // res.json(obj);
 
-          var pathToFile = path.join(
+          let pathToFile = path.join(
             __dirname,
             "..",
             "..",
