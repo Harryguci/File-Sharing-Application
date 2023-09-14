@@ -1,6 +1,19 @@
-/nodes_modules
-
-.env
+lib-cov
+*.seed
+*.log
+*.csv
+*.dat
+*.out
+*.pid
+*.gz
 
 /public/Documents/*
 
+/pids
+/logs
+/results
+/build
+
+/node_modules
+
+.env
