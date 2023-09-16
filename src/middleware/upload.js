@@ -1,7 +1,19 @@
 const multer = require("multer");
 const path = require("path");
+const { getData } = require("../util/HttpMethod");
 
-var kindFile = ["code", "de-cuong", "slide", "study", "tieu-luan"];
+var types;
+var kindFile;
+var kindFileName;
+
+(async function () {
+  types = await getData(`http://localhost:3000/json/FileType.json`)
+    .then((data) => data);
+  types = Array.from(types);
+
+  kindFile = types.map((type) => type[0]);
+  kindFileName = types.map((type) => type[1]);
+})();
 
 // Middleware
 const storage = multer.diskStorage({
@@ -31,10 +43,6 @@ const storage = multer.diskStorage({
     callback(null, fileID);
   },
 });
-
-// exports.fileID = fileID;
-// exports.multer = multer({ storage });
-// module.exports = [multer({ storage }), (fileID = fileID)];
 
 module.exports = {
   multer: multer({ storage }),
