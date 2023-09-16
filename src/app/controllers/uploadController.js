@@ -35,7 +35,6 @@ class uploadController {
           if (!obj) {
             next({ error: "Error creating Object" });
           } else {
-            // console.log("Created: ", obj);
             var backURL = "/files";
             backURL = cleanQuery(backURL);
             backURL += "?notify=Upload file successfully!";
