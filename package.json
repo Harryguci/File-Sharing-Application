@@ -7,8 +7,8 @@
     "sass": "sass/**"
   },
   "scripts": {
-    "start": "nodemon .\\src\\index.js",
-    "watch": "node-sass --watch .\\src\\resources\\scss --output .\\public\\css"
+    "start": "nodemon .\/src\/index.js",
+    "watch": "node-sass --watch .\/src\/resources\/scss --output .\/public\/css"
   },
   "author": "harryguci",
   "license": "ISC",
