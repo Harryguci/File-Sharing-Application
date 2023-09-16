@@ -2,9 +2,9 @@ const multer = require("multer");
 const path = require("path");
 const { getData } = require("../util/HttpMethod");
 
-var types;
-var kindFile;
-var kindFileName;
+var types = [];
+var kindFile = [];
+var kindFileName = [];
 
 (async function () {
   types = await getData(`http://localhost:3000/json/FileType.json`)
@@ -18,16 +18,20 @@ var kindFileName;
 // Middleware
 const storage = multer.diskStorage({
   destination: (req, file, callback) => {
-    var type = req.body.type;
+    let type = req.body.type;
     type = type.toLowerCase();
-    var check = false;
-    kindFile.map((value) => {
-      if (value === type) {
-        check = true;
-      }
-    }).length;
+    let check = false;
+    // kindFile.map((value) => {
+    //   if (value === type) {
+    //     check = true;
+    //   }
+    // }).length;
 
-    var Path = path.join(__dirname, "..", "..", "public", "Documents", "other");
+    kindFile.forEach((value) => check = check || value === type);
+    
+    console.log(check);
+
+    let Path = path.join(__dirname, "..", "..", "public", "Documents", "other");
     req.filePath = path.join("Documents", "other");
     if (check) {
       Path = path.join(__dirname, "..", "..", "public", "Documents", type);
@@ -38,7 +42,7 @@ const storage = multer.diskStorage({
   },
 
   filename: (req, file, callback) => {
-    var fileID = Date.now() + path.extname(file.originalname);
+    let fileID = Date.now() + path.extname(file.originalname);
     req.id = fileID;
     callback(null, fileID);
   },

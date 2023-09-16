@@ -29,11 +29,11 @@ class uploadController {
       file.url = req.filePath;
 
       console.log("ID : ", file);
-      
+
       File.create(file)
         .then(obj => {
-          if (err) {
-            next(err);
+          if (!obj) {
+            next({ error: "Error creating Object" });
           } else {
             // console.log("Created: ", obj);
             var backURL = "/files";
