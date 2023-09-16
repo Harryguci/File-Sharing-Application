@@ -1,13 +1,13 @@
 const multer = require("multer");
 const path = require("path");
 const { getData } = require("../util/HttpMethod");
-
+const url = process.env.NODE_ENV !== "production" ? 'http://localhost:3000' : 'https://file-sharing-application-e24s.onrender.com';
 var types = [];
 var kindFile = [];
 var kindFileName = [];
 
 (async function () {
-  types = await getData(`http://localhost:3000/json/FileType.json`)
+  types = await getData(`${url}/json/FileType.json`)
     .then((data) => data);
   types = Array.from(types);
 
@@ -21,14 +21,9 @@ const storage = multer.diskStorage({
     let type = req.body.type;
     type = type.toLowerCase();
     let check = false;
-    // kindFile.map((value) => {
-    //   if (value === type) {
-    //     check = true;
-    //   }
-    // }).length;
 
     kindFile.forEach((value) => check = check || value === type);
-    
+
     console.log(check);
 
     let Path = path.join(__dirname, "..", "..", "public", "Documents", "other");

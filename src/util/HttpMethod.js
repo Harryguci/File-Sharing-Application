@@ -1,6 +1,4 @@
 const http = require("http");
-// const host = process.env.HOST || 'http://localhost';
-// const port = process.env.PORT || 3000;
 
 function getData(path) {
     let parsed = '';

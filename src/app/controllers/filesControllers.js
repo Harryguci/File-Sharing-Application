@@ -1,13 +1,14 @@
 const path = require("path");
 const File = require("../models/File");
 const { getData } = require("../../util/HttpMethod");
+const url = process.env.NODE_ENV !== "production" ? 'http://localhost:3000' : 'https://file-sharing-application-e24s.onrender.com';
 
 var types;
 var kindFile;
 var kindFileName;
 
 (async function () {
-  types = await getData(`http://localhost:3000/json/FileType.json`)
+  types = await getData(`${url}/json/FileType.json`)
     .then((data) => data);
   types = Array.from(types);
 
@@ -18,7 +19,7 @@ var kindFileName;
 class filesController {
   // [GET] /files
   show = async (req, res, next) => {
-    const files = await getData(`http://localhost:3000/files/api/all`)
+    const files = await getData(`${url}/files/api/all`)
       .then(data => data)
       .catch(error => error);
 
