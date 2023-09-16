@@ -29,18 +29,20 @@ class uploadController {
       file.url = req.filePath;
 
       console.log("ID : ", file);
-
-      File.create(file, (err, obj) => {
-        if (err) {
-          next(err);
-        } else {
-          // console.log("Created: ", obj);
-          var backURL = "/files";
-          backURL = cleanQuery(backURL);
-          backURL += "?notify=Upload file successfully!";
-          res.redirect(backURL); // After redirect, Send a notification for user.
-        }
-      });
+      
+      File.create(file)
+        .then(obj => {
+          if (err) {
+            next(err);
+          } else {
+            // console.log("Created: ", obj);
+            var backURL = "/files";
+            backURL = cleanQuery(backURL);
+            backURL += "?notify=Upload file successfully!";
+            res.redirect(backURL); // After redirect, Send a notification for user.
+          }
+        })
+        .catch(err => next(err));
     } catch (err) {
       next(err);
     }
