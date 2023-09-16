@@ -25,14 +25,9 @@ db.connect();
 
 // Handlebars express template engine (And setup)
 app.engine(".hbs", engine({ extname: ".hbs" }));
+
 app.set("view engine", ".hbs");
 app.set("views", path.join(__dirname, "views"));
-
-hbs.registerHelper("ifCond", function (value1) {
-  if (value1) {
-    return value1;
-  }
-});
 
 // Use static files (html, css, js, etc)
 app.use(express.static("public"));
@@ -46,5 +41,5 @@ app.use(express.static("public"));
 app.use("/", router);
 
 app.listen(port, () => {
-  console.log(`listening on port ${port}`);
+  console.log(`listening on port: http://localhost:${port}`);
 });

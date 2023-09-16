@@ -5,7 +5,9 @@ const uploadRouter = require("./upload");
 const filesRouter = require("./files");
 const searchRouter = require("./search");
 const deleteRouter = require("./delete");
+const authRouter = require("./auth");
 
+router.use('/auth', authRouter);
 router.use("/upload", uploadRouter);
 router.use("/files", filesRouter);
 router.use("/search", searchRouter);

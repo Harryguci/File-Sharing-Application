@@ -41,6 +41,7 @@ class sharingController {
   };
 
   showJson = (req, res, next) => {
+    
     File.find({}).then((arr) => {
       arr = Array.from(arr);
       arr = arr.map((obj) => (obj = obj.toObject()));
