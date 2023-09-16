@@ -1,5 +1,4 @@
 // File Sharing Application
-
 const express = require("express");
 const { engine } = require("express-handlebars");
 const hbs = require("handlebars");
@@ -8,13 +7,13 @@ const port = 3000;
 const path = require("path");
 const router = require(path.join(__dirname, "routers"));
 const bodyParser = require("body-parser");
-const passport = require("passport");
+// const passport = require("passport");
 
 // .ENV configuration:
 require('dotenv').config()
 
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(passport.initialize()); //Dòng này để thông báo sử dụng passport nhé
+// app.use(passport.initialize()); //Dòng này để thông báo sử dụng passport nhé
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

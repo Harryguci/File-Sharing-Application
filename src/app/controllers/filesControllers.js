@@ -1,82 +1,46 @@
 const path = require("path");
 const File = require("../models/File");
+const { getData } = require("../../util/HttpMethod");
 
-const kindFile = ["code", "de-cuong", "slide", "study", "tieu-luan", "other"];
-const kindFileTEMP = [
-  "code",
-  "Đề cương",
-  "Slide bài giảng",
-  "Học tập",
-  "Tiểu luận",
-  "Khác",
-];
+var types;
+var kindFile;
+var kindFileName;
 
-const http = require("http");
+(async function () {
+  types = await getData(`http://localhost:3000/json/FileType.json`)
+    .then((data) => data);
+  types = Array.from(types);
+
+  kindFile = types.map((type) => type[0]);
+  kindFileName = types.map((type) => type[1]);
+})();
 
 class filesController {
   // [GET] /files
-  show = (req, res, next) => {
-    http.get("http://localhost:3000/files/api/all", response => {
-      const { statusCode } = response;
-      const contentType = response.headers['content-type'];
+  show = async (req, res, next) => {
+    const files = await getData(`http://localhost:3000/files/api/all`)
+      .then(data => data)
+      .catch(error => error);
 
-      console.log("Status Code: " + statusCode);
-      console.log("Content Type: " + contentType);
-
-      if (statusCode != 200) {
-        res.send({
-          error: "Invalid"
-        });
-      }
-
-      response.setEncoding('utf8');
-      let rawData = '';
-
-      response.on('data', (chunk) => { rawData += chunk; });
-
-      response.on('end', () => {
-        try {
-          const parsedData = JSON.parse(rawData);
-          console.log('[parsedData]', parsedData);
-          res.send(parsedData);
-        } catch (e) {
-          res.send({ error: e });
-        }
-      });
-    }).on('error', (error) => {
-      res.send({ error });
+    res.render("files", {
+      css: [
+        path.join("/", "css", "main.css"),
+        path.join("/", "css", "files.css")
+      ],
+      title: "File page",
+      page: "All",
+      notify: req.query.notify,
+      file: files,
     });
-
-    // File.find({ delete: "false" })
-    //   .then((arr) => {
-    //     arr = Array.from(arr);
-    //     arr = arr.map((obj) => (obj = obj.toObject()));
-    //     arr = arr.reverse();
-
-    //     res.render("files", {
-    //       css: [
-    //         path.join("..", "css", "main.css"),
-    //         path.join("..", "css", "files.css")
-    //       ],
-    //       title: "File page",
-    //       page: "All",
-    //       notify: req.query.notify,
-    //       file: arr,
-    //     });
-    //   })
-    //   .catch((err) => next(err));
   };
 
   // [GET] /files/api/all
   showAll = async (req, res, next) => {
-    console.log("SHOW ALL")
     var array = await File.find({ delete: "false" })
       .then((arr) => {
         arr = Array
           .from(arr)
-          .map(
-            (obj) => (obj = obj.toObject())
-          );
+          .map((obj) => (obj = obj.toObject()));
         arr = arr.reverse();
         return arr;
       })
@@ -95,15 +59,15 @@ class filesController {
           var heading;
           for (var i = 0; i < kindFile.length; i++) {
             if (type == kindFile[i]) {
-              heading = kindFileTEMP[i];
+              heading = kindFileName[i];
               break;
             }
           }
 
           res.render("files", {
             css: [
-              path.join("..", "css", "main.css"),
-              path.join("..", "css", "files.css")
+              path.join("/", "css", "main.css"),
+              path.join("/", "css", "files.css")
             ],
             title: "File page",
             page: heading,

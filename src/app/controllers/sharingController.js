@@ -29,7 +29,11 @@ class sharingController {
         }
 
         res.render("home", {
-          css: ["../css/main.css", "../css/files.css", "../css/home.css"],
+          css: [
+            path.join('/', 'css', 'main.css'),
+            path.join('/', 'css', 'files.css'),
+            path.join('/', 'css', 'home.css'),
+          ],
           title: "File page",
           page: "All",
           notify: req.query.notify,
@@ -41,7 +45,7 @@ class sharingController {
   };
 
   showJson = (req, res, next) => {
-    
+
     File.find({}).then((arr) => {
       arr = Array.from(arr);
       arr = arr.map((obj) => (obj = obj.toObject()));
@@ -52,7 +56,11 @@ class sharingController {
 
   about = (req, res, next) => {
     res.render("about", {
-      css: ["../css/main.css","../css/about.css"],
+      css: [
+        path.join('/', 'css', 'main.css'),
+        path.join('/', 'css', 'about.css')
+      ],
+      // css: ["/css/main.css", "/css/about.css"],
       title: "File page",
     });
   };

@@ -10,10 +10,10 @@ const authRouter = require("./auth");
 router.use('/auth', authRouter);
 router.use("/upload", uploadRouter);
 router.use("/files", filesRouter);
+router.use("/delete", deleteRouter);
 router.use("/search", searchRouter);
 router.get("/about", sharingController.about);
 router.get("/all", sharingController.showJson);
-router.use("/delete", deleteRouter);
 router.get("/", sharingController.show);
 
 module.exports = router;
